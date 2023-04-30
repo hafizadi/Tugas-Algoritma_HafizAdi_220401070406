@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Programmer Student Admission Program</title>
+</head>
+<body>
+	<h1>Programmer Student Admission Program</h1>
+	<form>
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name"><br><br>
+		<label for="grade">Grade:</label>
+		<input type="text" id="grade" name="grade"><br><br>
+		<label for="score">Exam Score:</label>
+		<input type="text" id="score" name="score"><br><br>
+		<input type="button" value="Submit" onclick="checkScore()">
+	</form>
+
+	<p id="result"></p>
+
+	<script>
+		function checkScore() {
+			var name = document.getElementById("name").value;
+			var grade = document.getElementById("grade").value;
+			var score = document.getElementById("score").value;
+
+			if (score > 79) {
+				document.getElementById("result").innerHTML = name + ", " + grade + ", you passed!";
+			} else if (score >= 60 && score <= 78) {
+				document.getElementById("result").innerHTML = name + ", " + grade + ", you are still considered.";
+			} else {
+				document.getElementById("result").innerHTML = name + ", " + grade + ", you did not pass.";
+			}
+		}
+	</script>
+</body>
+</html>

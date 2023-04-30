@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Disney Land Ticket</title>
+</head>
+<body>
+	<h1>Disney Land Ticket</h1>
+	<form>
+		<label for="tinggi">Tinggi Anak (cm):</label>
+		<input type="text" id="tinggi" name="tinggi"><br><br>
+		<label for="umur">Umur Anak:</label>
+		<input type="text" id="umur" name="umur"><br><br>
+		<button type="submit">Cek Harga</button>
+	</form>
+
+	<div id="hasil"></div>
+
+	<script>
+		const form = document.querySelector('form');
+		form.addEventListener('submit', function(event) {
+			event.preventDefault();
+			const tinggi = parseFloat(document.getElementById('tinggi').value);
+			const umur = parseInt(document.getElementById('umur').value);
+			let harga = 0;
+
+			if (umur < 1) {
+				harga = 'Dilarang masuk';
+			} else if (umur < 3) {
+				harga = 30000;
+			} else if (umur < 7) {
+				harga = 40000;
+			} else if (umur < 10) {
+				harga = 50000;
+			} else if (umur >= 10) {
+				harga = 80000;
+			} else if (tinggi >= 150 && umur >= 8 && umur <= 10) {
+				harga = 70000;
+			} else if (tinggi >= 120 && umur >= 7 && umur <= 12) {
+				harga = 50000;
+			} else if (tinggi >= 120 && umur > 12) {
+				harga = 100000;
+			} else if (tinggi > 70 && umur >= 2 && umur <= 3) {
+				harga = 40000;
+			} else if (tinggi > 120 && umur >= 4 && umur <= 7) {
+				harga = 55000;
+			}
+
+			const hasil = document.getElementById('hasil');
+			if (typeof harga === 'number') {
+				hasil.innerHTML = `Harga tiket: Rp ${harga}`;
+			} else {
+				hasil.innerHTML = harga;
+			}
+		});
+	</script>
+</body>
+</html>

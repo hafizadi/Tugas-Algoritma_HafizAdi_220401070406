@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Penentuan Nomor Punggung</title>
+  </head>
+  <body>
+    <h1>Penentuan Nomor Punggung</h1>
+    <p>Masukkan nomor punggung kelompok Anda:</p>
+    <input type="number" id="nomor-punggung">
+    <button onclick="tentukanPosisi()">Tentukan Posisi</button>
+    <p id="posisi"></p>
+    <p id="captain"></p>
+
+    <script>
+      function tentukanPosisi() {
+        var nomorPunggung = document.getElementById("nomor-punggung").value;
+        if (nomorPunggung % 2 == 0) {
+          if (nomorPunggung >= 50 && nomorPunggung <= 100) {
+            document.getElementById("posisi").innerHTML = "Posisi: Target Attacker";
+            document.getElementById("captain").innerHTML = "Berhak dipilih menjadi captain team";
+          } else {
+            document.getElementById("posisi").innerHTML = "Posisi: Target Attacker";
+          }
+        } else {
+          if (nomorPunggung % 3 == 0 && nomorPunggung % 5 == 0) {
+            document.getElementById("posisi").innerHTML = "Posisi: Keeper";
+          } else if (nomorPunggung > 90) {
+            document.getElementById("posisi").innerHTML = "Posisi: Playmaker";
+          } else {
+            document.getElementById("posisi").innerHTML = "Posisi: Defender";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
